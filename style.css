@@ -936,6 +936,19 @@ nav.navbar {
   font-weight: 700;
   color: #111;
 }
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+}
 .add-cart-btn {
   background: #3a86ff;
   color: white;
