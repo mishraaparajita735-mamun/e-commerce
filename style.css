@@ -747,7 +747,55 @@ nav.navbar {
     grid-template-columns: 1fr;
     padding: 15px;
   }
+.hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 20px 15px;
+    overflow: hidden;
+  }
 
+  .hero-content {
+    width: 100%;
+    order: 1;
+  }
+
+  .hero-images {
+    position: static !important;
+    width: 100%;
+    height: auto;
+    order: 2;
+    margin-top: 20px;
+  }
+.hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 20px 15px;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    order: 1;
+  }
+
+  .hero-images {
+    position: static !important;
+    width: 100%;
+    height: auto;
+    order: 2;
+    margin-top: 20px;
+  }
+  .hero-images img {
+    position: static !important;
+    width: 85% !important;
+    margin: 10px auto;
+    display: block !important;
+    transform: none !important;
+  }
   ul.nav-links li {
     list-style: none;
   }
