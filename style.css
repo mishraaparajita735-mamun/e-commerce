@@ -923,6 +923,34 @@ nav.navbar {
 .add-cart-btn:hover {
   background: #2a66cc;
 }
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+}
+.add-cart-btn {
+  background: #3a86ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.add-cart-btn:hover {
+  background: #2a66cc;
+}
 .product-img {
   background: #f9fafb;
   padding: 20px;
