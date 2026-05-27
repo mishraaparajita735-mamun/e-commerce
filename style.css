@@ -860,3 +860,38 @@ nav.navbar {
   }
 }
 /* Navbar Mobile Fix */
+/* ===== SHOP PAGE STYLES ===== */
+.nav-links .active { color: #2563eb; font-weight: 600; }
+.breadcrumb { padding: 15px 5%; font-size: 14px; color: #6b7280; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #e5e7eb; }
+.breadcrumb a { color: #6b7280; text-decoration: none; }
+.breadcrumb a:hover { color: #2563eb; }
+.breadcrumb i { font-size: 12px; }
+.page-header { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
+.page-header h1 { font-size: 28px; font-weight: 700; }
+.header-actions { display: flex; gap: 12px; }
+.btn-filter { padding: 8px 16px; border: 1px solid #d1d5db; background: white; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.btn-filter:hover { background: #f9fafb; }
+.products-container { padding: 0 5% 40px; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.product-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: 0.3s; }
+.product-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.product-img { background: #f9fafb; padding: 20px; }
+.product-img img { width: 100%; height: 200px; object-fit: contain; }
+.product-info { padding: 16px; }
+.product-meta { display: flex; justify-content: space-between; font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+.product-icons { display: flex; gap: 12px; cursor: pointer; }
+.product-icons i:hover { color: #2563eb; }
+.product-info h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin: 8px 0; height: 44px; overflow: hidden; }
+.rating { display: flex; align-items: center; gap: 6px; font-size: 14px; margin: 10px 0; }
+.rating i { color: #fbbf24; font-size: 14px; }
+.rating span { color: #6b7280; }
+.product-tags { display: flex; gap: 12px; font-size: 12px; color: #4b5563; margin-top: 12px; }
+.product-tags span { display: flex; align-items: center; gap: 4px; }
+
+@media only screen and (max-width: 1024px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media only screen and (max-width: 768px) {
+  .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .product-info h3 { font-size: 14px; height: 40px; }
+}
+@media only screen and (max-width: 480px) { .products-grid { grid-template-columns: 1fr; } }
