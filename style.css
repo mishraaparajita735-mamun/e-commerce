@@ -1,0 +1,25 @@
+   body {
+     font-family: Arial;
+     text-align: center;
+     padding: 20px;
+   }
+             h1 { color: #333; }
+             .product {
+                border: 1px solid #ddd; 
+            padding: 15px; 
+            margin: 10px; 
+            display: inline-block; 
+            background: white;
+            border-radius: 8px;
+            width: 200px;
+        }
+        button { 
+            background: #4CAF50; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background: #45a049; }
+    
