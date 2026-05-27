@@ -677,7 +677,43 @@ body{
   .hero {
     padding: 20px;
   }
+  .hero {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px;
+  }
 
+  .hero-content {
+    order: 1;
+    width: 100% !important;
+    position: static !important;
+  }
+
+  .hero-images {
+    order: 2;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* SABHI IMAGES KO NORMAL FLOW ME LA DEGA */
+  .hero-images img,
+  .hero img[class*="hero-img"] {
+    position: static !important;
+    width: 90% !important;
+    height: auto !important;
+    margin: 12px auto !important;
+    display: block !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 1 !important;
+  }
   .hero h1 {
     font-size: 28px;
     line-height: 1.2;
