@@ -781,7 +781,21 @@ nav.navbar {
     width: 100%;
     order: 1;
   }
+  .hero {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    min-height: auto !important;
+    text-align: center;
+    padding: 20px 15px;
+  }
 
+  .hero-content {
+    position: static !important;
+    width: 100%;
+    order: 1;
+  }
   .hero-images {
     position: static !important;
     width: 100%;
