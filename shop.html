@@ -5,146 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronics - JugaadMart</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html" class="active">Electronics</a></li>
-            <li><a href="grocery.html">Grocery</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-        <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="Profile">
-        </div>
-        <div class="hamburger">☰</div>
-    </nav> 
+        <div class="profile"></div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> > <a href="#">Products</a> > <span>Electronics</span>
+    </div>
 
     <div class="shop-container">
-        <h1 style="margin-bottom: 30px; font-size: 32px; color: #1f2937;">Electronics</h1>
-        
+        <div class="shop-header">
+            <h1>Electronics</h1>
+            <div class="shop-actions">
+                <button class="filter-btn"><i class="fa-solid fa-filter"></i> Filters</button>
+                <button class="sort-btn"><i class="fa-solid fa-sort"></i> Sort</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
         <div class="product-grid">
-            <!-- Tera existing Xbox ka card -->
+            
+            <!-- Product 1: iMac -->
             <div class="product-card">
-                <div class="price-box">
-                    <div class="price">$1,699</div>
-                </div>
-                <div class="product-main">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400" alt="Xbox">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500" alt="iMac">
+                </div> <!-- YAHAN FIX KIYA -->
+                <div class="product-info">
+                    <p class="offer">Up to 35% off</p>
+                    <h3>Apple iMac 27", 1TB HDD, Retina 5K Display, M3 Max</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>5.0 (455)</span>
                     </div>
-                    <div class="product-info">
-                        <div class="offer-row">
-                            <p class="offer">Up to 10% off</p>
-                            <div class="icons">
-                                <i class="eye">👁</i>
-                                <i class="heart">♡</i>
-                            </div>
-                        </div>
-                        <h3>Microsoft Xbox Series X 1TB Gaming Console</h3>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span> 4.8 (4,263)
-                        </div>
-                        <div class="tags">
-                            <span><i>📍</i> Best Seller</span>
-                            <span><i>🏷</i> Best Price</span>
-                        </div>
+                    <p class="tags">🚚 Fast Delivery | 💰 Best Price</p>
+                    <div class="product-bottom">
+                        <div class="price">$2,399</div>
+                        <button class="add-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Tera existing MacBook ka card -->
+            <!-- Product 2: iPhone -->
             <div class="product-card">
-                <div class="price-box">
-                    <div class="price">$1,199</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400" alt="iPhone">
                 </div>
-                <div class="product-main">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" alt="MacBook">
+                <div class="product-info">
+                    <p class="offer">Up to 15% off</p>
+                    <h3>Apple iPhone 15 Pro Max, 256GB, Blue Titanium</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.9 (1,233)</span>
                     </div>
-                    <div class="product-info">
-                        <div class="offer-row">
-                            <p class="offer">Up to 5% off</p>
-                            <div class="icons">
-                                <i class="eye">👁</i>
-                                <i class="heart">♡</i>
-                            </div>
-                        </div>
-                        <h3>Apple MacBook PRO Laptop with M2 chip</h3>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span> 4.9 (1,076)
-                        </div>
-                        <div class="tags">
-                            <span><i>🚚</i> Fast Delivery</span>
-                            <span><i>🏷</i> Best Price</span>
-                        </div>
+                    <p class="tags">🏆 Best Seller | 💰 Best Price</p>
+                    <div class="product-bottom">
+                        <div class="price">$1,199</div>
+                        <button class="add-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Tera existing Watch ka card -->
+            <!-- Product 3: iPad -->
             <div class="product-card">
-                <div class="price-box">
-                    <div class="price">$799</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400" alt="iPad">
                 </div>
-                <div class="product-main">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" alt="Apple Watch">
+                <div class="product-info">
+                    <p class="offer">Up to 35% off</p>
+                    <h3>iPad Pro 13-Inch (M4): XDR Display, 512GB</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>4.9 (879)</span>
                     </div>
-                    <div class="product-info">
-                        <div class="offer-row">
-                            <p class="offer">Up to 20% off</p>
-                            <div class="icons">
-                                <i class="eye">👁</i>
-                                <i class="heart">♡</i>
-                            </div>
-                        </div>
-                        <h3>Apple Watch SE [GPS 40mm], Smartwatch</h3>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span> 4.7 (387)
-                        </div>
-                        <div class="tags">
-                            <span><i>🚚</i> Fast Delivery</span>
-                            <span><i>🏷</i> Best Price</span>
-                        </div>
+                    <p class="tags">🚚 Shipping Today | 💰 Best Price</p>
+                    <div class="product-bottom">
+                        <div class="price">$1,499</div>
+                        <button class="add-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Tera existing Surface ka card -->
+            <!-- Product 4: PS5 -->
             <div class="product-card">
-                <div class="price-box">
-                    <div class="price">$499</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400" alt="PS5">
                 </div>
-                <div class="product-main">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" alt="Surface Pro">
+                <div class="product-info">
+                    <p class="offer">Up to 10% off</p>
+                    <h3>PlayStation®5 Console – 1TB, PRO Controller</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.8 (2,957)</span>
                     </div>
-                    <div class="product-info">
-                        <div class="offer-row">
-                            <p class="offer">Up to 35% off</p>
-                            <div class="icons">
-                                <i class="eye">👁</i>
-                                <i class="heart">♡</i>
-                            </div>
-                        </div>
-                        <h3>Microsoft Surface Pro, Copilot+ PC, 13 Inch</h3>
-                        <div class="rating">
-                            <span class="stars">★★★★★</span> 4.9 (4,775)
-                        </div>
-                        <div class="tags">
-                            <span><i>🚚</i> Fast Delivery</span>
-                            <span><i>🏷</i> Best Price</span>
-                        </div>
+                    <p class="tags">🚚 Fast Delivery | 💰 Best Price</p>
+                    <div class="product-bottom">
+                        <div class="price">$499</div>
+                        <button class="add-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- YAHAN NAYE ELECTRONICS PRODUCTS ADD KAR SAKTI HAI -->
-            <!-- Bas upar wala product-card copy karke yahan paste kar de aur details change kar de -->
 
         </div>
     </div>
