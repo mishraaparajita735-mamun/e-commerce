@@ -793,7 +793,7 @@ nav.navbar {
   }
 
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: 15px;
   }
 .hero {
@@ -868,7 +868,7 @@ nav.navbar {
   }
 
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: 15px;
   }
 }
@@ -1080,6 +1080,6 @@ nav.navbar {
 /* Mobile ke liye */
 @media (max-width: 768px) {
     .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
