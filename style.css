@@ -630,6 +630,16 @@ body{
 /* Mobile Responsive */
 @media only screen and (max-width: 768px) {
   .navbar {
+        * {
+        box-sizing: border-box;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .shop-container {
+        width: 100%;
+        padding: 10px;
+    }
     flex-direction: column;
     padding: 10px;
   }
