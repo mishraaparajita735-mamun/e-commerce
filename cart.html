@@ -5,117 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - JugaadMart</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .cart-items {
+            flex: 2;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: white;
+        }
+        .item-img {
+            width: 80px;
+            height: 80px;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .item-actions button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .order-summary {
+            flex: 1;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            background: white;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .voucher-box {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .voucher-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            
-            <li><a href="categories.html">Categories</a></li>
             <li><a href="cart.html" class="active">Cart(0)</a></li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">count 0</a></li>
+            <li><a href="#">decrement</a></li>
+            <li><a href="#">IncrementbyValue</a></li>
         </ul>
-        <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="Profile">
-        </div>
+        <div class="profile"></div>
     </nav>
 
-    <main class="container cart-page">
-    <h1>Shopping Cart</h1>
     <div class="cart-container">
         <div class="cart-items">
+            <h2>Shopping Cart</h2>
+            
             <div class="cart-item">
-                <img src="https://via.placeholder.com/80x80" alt="iMac">
+                <div class="item-img"></div>
                 <div class="item-details">
                     <p>PC system All In One APPLE iMac (2023) mrqr3ro/a, Apple M3, 24" Retina 4.5K, 8GB, SSD 256GB, 10-core GPU, Keyboard layout INT</p>
-                    <div class="item-actions">
-                        <a href="#" class="fav">♡ Add to Favorites</a>
-                        <a href="#" class="remove">✕ Remove</a>
+                    <div style="margin-top: 10px;">
+                        <span style="color: #777;">♡ Add to Favorites</span> &nbsp;
+                        <span style="color: red;">✕ Remove</span>
                     </div>
                 </div>
-                <div class="item-qty">
+                <div class="item-actions">
                     <button>-</button>
                     <span>2</span>
                     <button>+</button>
                 </div>
-                <div class="item-price">$1,499</div>
+                <div><strong>$1,499</strong></div>
+            </div>
+
+            <div class="cart-item">
+                <div class="item-img"></div>
+                <div class="item-details">
+                    <p>PC system All In One APPLE iMac (2023) mrqr3ro/a, Apple M3, 24" Retina 4.5K, 8GB, SSD 256GB, 10-core GPU, Keyboard layout INT</p>
+                    <div style="margin-top: 10px;">
+                        <span style="color: #777;">♡ Add to Favorites</span> &nbsp;
+                        <span style="color: red;">✕ Remove</span>
+                    </div>
+                </div>
+                <div class="item-actions">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <div><strong>$1,499</strong></div>
             </div>
         </div>
 
-        <div class="cart-summary">
-            <div class="summary-box">
+        <div>
+            <div class="order-summary">
                 <h3>Order summary</h3>
-                <div class="summary-row"><span>Original price</span><span>$7,592.00</span></div>
-                <div class="summary-row"><span>Savings</span><span class="green">-$299.00</span></div>
-                <div class="summary-row"><span>Store Pickup</span><span>$99</span></div>
-                <div class="summary-row"><span>Tax</span><span>$799</span></div>
-                <hr>
-                <div class="summary-row total"><span>Total</span><span>$8,191.00</span></div>
-                <p class="continue">or <a href="index.html">Continue Shopping →</a></p>
+                <div class="summary-row">
+                    <span>Original price</span>
+                    <span>$7,592.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Savings</span>
+                    <span style="color: green;">-$299.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Store Pickup</span>
+                    <span>$99</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span>$799</span>
+                </div>
+                <hr style="margin: 15px 0;">
+                <div class="summary-row">
+                    <strong>Total</strong>
+                    <strong>$8,191.00</strong>
+                </div>
+                <p style="text-align: center; margin-top: 20px;">or <a href="shop.html">Continue Shopping →</a></p>
             </div>
+
             <div class="voucher-box">
                 <p>Do you have a voucher or gift card?</p>
                 <input type="text" placeholder="">
             </div>
         </div>
     </div>
-</main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <div class="footer-logo">Jugaad<span>Mart</span></div>
-                <p class="footer-desc">Your one-stop destination for electronics, fashion, shoes, and daily essentials at the best prices with fast delivery.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <ul>
-                    <li><a href="electronics.html">Electronics</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">Mobiles</a></li>
-                    <li><a href="deals.html">Deals</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Order Status</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul class="contact-info">
-                    <li><i class="fa-solid fa-location-dot"></i> Bhubaneswar, India</li>
-                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-                    <li><i class="fa-solid fa-envelope"></i> support@jugaadmart.com</li>
-                </ul>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 JugaadMart. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Cookies</a>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
