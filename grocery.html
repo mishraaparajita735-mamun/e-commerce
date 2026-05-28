@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery - JugaadMart</title>
+    <link rel="stylesheet" href="style.css?v=phone1">
+    <style>
+        .shop-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .discount { font-size: 12px; color: #666; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; font-weight: 600; }
+        .rating { color: #ffa41c; font-size: 14px; margin: 8px 0; }
+        .tags { display: flex; gap: 15px; font-size: 12px; color: #555; margin: 10px 0; }
+        .price-cart { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .price { font-size: 20px; font-weight: bold; }
+        .add-cart { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Jugaad<span>Mart</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="grocery.html" class="active">Grocery</a></li>
+            <li><a href="cart.html">Cart(0)</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="deals.html">Deals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="profile"></div>
+    </nav> 
+
+    <div class="shop-container">
+        <h1 style="font-size: 32px; margin-bottom: 30px;">Grocery & Essentials</h1>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://i.imgur.com/8zQ6Z3p.png" alt="Beef Steak">
+                <div class="discount"><span>Up to 9.61% off</span><span>👁 ♡</span></div>
+                <h3>Beef Steak</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$12.99</span>
+                    <button class="add-cart">🛒 Add to cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/k2M3N4p.png" alt="Cat Food">
+                <div class="discount"><span>Up to 9.58% off</span><span>👁 ♡</span></div>
+                <h3>Cat Food</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$8.99</span>
+                    <button class="add-cart">🛒 Add to cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/7bN5M6k.png" alt="Chicken Meat">
+                <div class="discount"><span>Up to 13.7% off</span><span>👁 ♡</span></div>
+                <h3>Chicken Meat</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$9.99</span>
+                    <button class="add-cart">🛒 Add to cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.imgur.com/9cV8B2x.png" alt="Cooking Oil">
+                <div class="discount"><span>Up to 9.33% off</span><span>👁 ♡</span></div>
+                <h3>Cooking Oil</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$4.99</span>
+                    <button class="add-cart">🛒 Add to cart</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
