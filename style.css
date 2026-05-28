@@ -19,7 +19,6 @@ body{
     padding: 0 20px;
 }
 
-/* ===== NAVBAR ===== */
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -59,7 +58,6 @@ body{
     cursor: pointer;
 }
 
-/* ===== HERO SECTION ===== */
 .hero{
     display: flex;
     padding: 60px 8%;
@@ -189,7 +187,6 @@ body{
     color: #1e293b;
 }
 
-/* ===== SHOP PAGE ===== */
 .breadcrumb {
     padding: 15px 5%;
     font-size: 14px;
@@ -231,10 +228,11 @@ body{
     background: #f9fafb;
 }
 
+/* PURI FILE ME BAS YAHI EK BAAR HAI */
 .product-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -322,11 +320,7 @@ body{
     background: #2a66cc; 
 }
 
-/* ===== TABLET ===== */
 @media only screen and (max-width: 1024px) {
-    .product-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-    }
     .hero { 
         flex-direction: column; 
         text-align: center;
@@ -339,7 +333,6 @@ body{
     }
 }
 
-/* ===== MOBILE ===== */
 @media only screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -368,11 +361,6 @@ body{
         flex-direction: column; 
         align-items: flex-start; 
         gap: 16px; 
-    }
-    .product-grid { 
-        grid-template-columns: 1fr; 
-        padding: 15px;
-        gap: 15px;
     }
     .product-info h3 { 
         font-size: 14px; 
