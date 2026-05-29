@@ -6,142 +6,361 @@
     <title>Electronics - JugaadMart</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .shop-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .shop-container h1 {
+            font-size: 32px;
+            color: #1f2937;
+        }
+        .cart-icon {
+            position: relative;
+            font-size: 24px;
+            color: #1f2937;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 15px;
+            background: white;
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .product-discount {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 15px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .product-rating {
+            color: #ffa41c;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .product-tags {
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            gap: 15px;
+            margin: 8px 0;
+        }
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .add-to-cart {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .add-to-cart:hover {
+            background: #1d4ed8;
+        }
+        .add-to-cart.added {
+            background: #16a34a;
+        }
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html" class="active">Shop</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="electronics.html" class="active">Electronics</a></li>
+            <li><a href="grocery.html">Grocery</a></li>
+            <li><a href="beauty.html">Beauty</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="deals.html">Deals</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="profile"></div>
+        <div class="profile">
+            <img src="https://i.pravatar.cc/40" alt="Profile">
+        </div>
+        <div class="hamburger">☰</div>
     </nav>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="index.html">Home</a> > <a href="#">Products</a> > <span>Electronics</span>
-    </div>
 
     <div class="shop-container">
         <div class="shop-header">
-            <h1>Electronics</h1>
-            <div class="shop-actions">
-                <button class="filter-btn"><i class="fa-solid fa-filter"></i> Filters</button>
-                <button class="sort-btn"><i class="fa-solid fa-sort"></i> Sort</button>
+            <h1>Electronics Products</h1>
+            <div class="cart-icon" onclick="alert('Cart page coming soon!')">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
-
-        <!-- Product Grid -->
+        
         <div class="product-grid">
             
-            <!-- Product 1: iMac -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500" alt="iMac">
-                </div> <!-- YAHAN FIX KIYA -->
-                <div class="product-info">
-                    <p class="offer">Up to 35% off</p>
-                    <h3>Apple iMac 27", 1TB HDD, Retina 5K Display, M3 Max</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>5.0 (455)</span>
-                    </div>
-                    <p class="tags">🚚 Fast Delivery | 💰 Best Price</p>
-                    <div class="product-bottom">
-                        <div class="price">$2,399</div>
-                        <button class="add-cart-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                    </div>
+            <!-- Product 1 -->
+            <div class="product-card" data-id="1" data-name="Apple MacBook Pro 14 Inch M3" data-price="1599">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png" alt="MacBook Pro">
+                <div class="product-discount">
+                    <span>Up to 10% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
+                </div>
+                <div class="product-title">Apple MacBook Pro 14 Inch M3 Chip</div>
+                <div class="product-rating">★★★★★ 4.9 (1.2K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$1,599</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
-            <!-- Product 2: iPhone -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400" alt="iPhone">
+            <!-- Product 2 -->
+            <div class="product-card" data-id="2" data-name="Apple iPhone 15 Pro 256GB" data-price="999">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/smartphones/iPhone%2015%20Pro/1.png" alt="iPhone 15 Pro">
+                <div class="product-discount">
+                    <span>Up to 15% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
                 </div>
-                <div class="product-info">
-                    <p class="offer">Up to 15% off</p>
-                    <h3>Apple iPhone 15 Pro Max, 256GB, Blue Titanium</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.9 (1,233)</span>
-                    </div>
-                    <p class="tags">🏆 Best Seller | 💰 Best Price</p>
-                    <div class="product-bottom">
-                        <div class="price">$1,199</div>
-                        <button class="add-cart-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                    </div>
+                <div class="product-title">Apple iPhone 15 Pro 256GB</div>
+                <div class="product-rating">★★★★★ 4.8 (3.4K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$999</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
-            <!-- Product 3: iPad -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400" alt="iPad">
+            <!-- Product 3 -->
+            <div class="product-card" data-id="3" data-name="Samsung Galaxy S24 Ultra 512GB" data-price="1199">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S24%20Ultra/1.png" alt="Samsung S24">
+                <div class="product-discount">
+                    <span>Up to 20% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
                 </div>
-                <div class="product-info">
-                    <p class="offer">Up to 35% off</p>
-                    <h3>iPad Pro 13-Inch (M4): XDR Display, 512GB</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.9 (879)</span>
-                    </div>
-                    <p class="tags">🚚 Shipping Today | 💰 Best Price</p>
-                    <div class="product-bottom">
-                        <div class="price">$1,499</div>
-                        <button class="add-cart-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                    </div>
+                <div class="product-title">Samsung Galaxy S24 Ultra 512GB</div>
+                <div class="product-rating">★★★★★ 4.7 (2.1K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$1,199</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
-            <!-- Product 4: PS5 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400" alt="PS5">
+            <!-- Product 4 -->
+            <div class="product-card" data-id="4" data-name="Dell XPS 13 Plus Intel i7" data-price="1299">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/laptops/Dell%20XPS%2013%20Plus/1.png" alt="Dell XPS">
+                <div class="product-discount">
+                    <span>Up to 25% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
                 </div>
-                <div class="product-info">
-                    <p class="offer">Up to 10% off</p>
-                    <h3>PlayStation®5 Console – 1TB, PRO Controller</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <span>4.8 (2,957)</span>
-                    </div>
-                    <p class="tags">🚚 Fast Delivery | 💰 Best Price</p>
-                    <div class="product-bottom">
-                        <div class="price">$499</div>
-                        <button class="add-cart-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
-                        </button>
-                    </div>
+                <div class="product-title">Dell XPS 13 Plus Intel i7 16GB</div>
+                <div class="product-rating">★★★★☆ 4.6 (890)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$1,299</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-id="5" data-name="Apple AirPods Max" data-price="499">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20AirPods%20Max%20Silver/1.png" alt="AirPods Max">
+                <div class="product-discount">
+                    <span>Up to 12% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
+                </div>
+                <div class="product-title">Apple AirPods Max Wireless Headphones</div>
+                <div class="product-rating">★★★★★ 4.8 (1.8K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$499</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-id="6" data-name="Google Pixel 8 Pro 256GB" data-price="899">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/smartphones/Google%20Pixel%208%20Pro/1.png" alt="Pixel 8">
+                <div class="product-discount">
+                    <span>Up to 18% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
+                </div>
+                <div class="product-title">Google Pixel 8 Pro 256GB</div>
+                <div class="product-rating">★★★★☆ 4.7 (1.5K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$899</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-id="7" data-name="Apple iPad Pro 12.9-inch M2" data-price="1099">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/tablets/iPad%20Pro%2012.9-inch/1.png" alt="iPad Pro">
+                <div class="product-discount">
+                    <span>Up to 8% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
+                </div>
+                <div class="product-title">Apple iPad Pro 12.9-inch M2 256GB</div>
+                <div class="product-rating">★★★★★ 4.9 (2.3K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$1,099</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-id="8" data-name="Apple Watch Series 9 GPS" data-price="429">
+                <img class="product-img" src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Watch%20Series%209/1.png" alt="Apple Watch">
+                <div class="product-discount">
+                    <span>Up to 14% off</span>
+                    <span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span>
+                </div>
+                <div class="product-title">Apple Watch Series 9 GPS 45mm</div>
+                <div class="product-rating">★★★★☆ 4.6 (1.1K)</div>
+                <div class="product-tags">
+                    <span><i class="fas fa-truck"></i> Fast Delivery</span>
+                    <span><i class="fas fa-tag"></i> Best Price</span>
+                </div>
+                <div class="product-footer">
+                    <span class="product-price">$429</span>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Cart Functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = document.getElementById('cartCount');
+        
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        updateCartCount();
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.product-card');
+                const id = card.dataset.id;
+                const name = card.dataset.name;
+                const price = parseFloat(card.dataset.price);
+                
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    cart.push({ id, name, price, qty: 1 });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                // Button feedback
+                this.innerHTML = '<i class="fas fa-check"></i> Added';
+                this.classList.add('added');
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to cart';
+                    this.classList.remove('added');
+                }, 1500);
+            });
+        });
+    </script>
 </body>
 </html>
