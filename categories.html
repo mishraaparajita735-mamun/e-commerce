@@ -6,13 +6,157 @@
     <title>Categories - JugaadMart</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Main Content */
+        .main-content {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .show-more-btn {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .show-more-btn:hover {
+            background: #f9fafb;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .footer-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        .footer-logo-text span {
+            color: #3B82F6;
+        }
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+        .footer h3 {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .contact-info {
+            font-size: 14px;
+        }
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info i {
+            color: #ef4444;
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            background: #3B82F6;
+        }
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            margin-top: 50px;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 25px;
+        }
+        .footer-bottom-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="electronics.html">Shop</a></li>
             <li><a href="categories.html" class="active">Categories</a></li>
             <li><a href="deals.html">Deals</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -20,66 +164,79 @@
         <div class="profile">
             <img src="https://i.pravatar.cc/40" alt="Profile">
         </div>
+        <div class="hamburger">☰</div>
     </nav>
 
+    <!-- Main Content Area -->
     <div class="main-content">
-        <div class="show-more-container">
-            <button class="show-more-btn">Show more</button>
-        </div>
+        <button class="show-more-btn">Show more</button>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-col">
-                <div class="footer-logo">Jugaad<span>Mart</span></div>
-                <p class="footer-desc">Your one-stop destination for electronics, fashion, shoes, and daily essentials at the best prices with fast delivery.</p>
+            <div>
+                <div class="footer-logo">
+                    <div class="footer-logo-text">Jugaad<span>Mart</span></div>
+                </div>
+                <p class="footer-desc">
+                    Your one-stop destination for electronics, fashion, shoes, and daily essentials at the best prices with fast delivery.
+                </p>
             </div>
-
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <ul>
+            
+            <div>
+                <h3>Shop</h3>
+                <ul class="footer-links">
                     <li><a href="electronics.html">Electronics</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">Mobiles</a></li>
+                    <li><a href="fashion.html">Fashion</a></li>
+                    <li><a href="shoes.html">Shoes</a></li>
+                    <li><a href="mobiles.html">Mobiles</a></li>
                     <li><a href="deals.html">Deals</a></li>
                 </ul>
             </div>
-
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
+            
+            <div>
+                <h3>Support</h3>
+                <ul class="footer-links">
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Shipping Info</a></li>
                     <li><a href="#">Returns</a></li>
                     <li><a href="#">Order Status</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
-
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul class="contact-info">
-                    <li><i class="fa-solid fa-location-dot"></i> Bhubaneswar, India</li>
-                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-                    <li><i class="fa-solid fa-envelope"></i> support@jugaadmart.com</li>
-                </ul>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            
+            <div>
+                <h3>Contact</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Bhubaneswar, India</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> support@jugaadmart.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-
+        
         <div class="footer-bottom">
             <p>© 2026 JugaadMart. All rights reserved.</p>
-            <div class="footer-links">
+            <div class="footer-bottom-links">
                 <a href="#">Privacy</a>
                 <a href="#">Terms</a>
                 <a href="#">Cookies</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
