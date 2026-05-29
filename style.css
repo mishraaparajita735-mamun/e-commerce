@@ -715,3 +715,38 @@ body {
         grid-row: span 1;
     }
 }
+/* Add to Cart Button Fix */
+.add-cart-btn {
+    background: #0071e3;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.add-cart-btn:hover {
+    background: #005bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.add-cart-btn i {
+    font-size: 14px;
+}
+
+/* Price aur button ko ek saath rakhne ke liye */
+.product-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+}
