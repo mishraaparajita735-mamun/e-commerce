@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JugaadMart - Your Smart Way to Shop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="shop.html">Electronics</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
             <li><a href="grocery.html">Grocery</a></li>
+            <li><a href="beauty.html">Beauty</a></li>
             <li><a href="categories.html">Categories</a></li>
             <li><a href="deals.html">Deals</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -29,7 +31,7 @@
             <h1>Your Smart Way to <br><span>Shop Everything</span></h1>
             <p class="desc">Discover curated products, best prices, and fast delivery — all in one place.</p>
             <div class="btns">
-                <a href="shop.html" class="btn-primary">Start Shopping</a>
+                <a href="electronics.html" class="btn-primary">Start Shopping</a>
                 <a href="deals.html" class="btn-secondary">View Deals</a>
             </div>
             <div class="stats">
@@ -52,5 +54,15 @@
             <div class="deal-tag">🔥 Up to 70% Off Deals</div>
         </div>
     </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
