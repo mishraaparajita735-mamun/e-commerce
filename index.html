@@ -1,56 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JugaadMart - Your Smart Way to Shop</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase - E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Jugaad<span>Mart</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="shop.html">Electronics</a></li>
-            <li><a href="grocery.html">Grocery</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="Profile">
-        </div>
-        <div class="hamburger">☰</div>
-    </nav> 
 
-    <section class="hero">
-        <div class="hero-left">
-            <p class="tag">NEW • TRENDING DEALS</p>
-            <h1>Your Smart Way to <br><span>Shop Everything</span></h1>
-            <p class="desc">Discover curated products, best prices, and fast delivery — all in one place.</p>
-            <div class="btns">
-                <a href="shop.html" class="btn-primary">Start Shopping</a>
-                <a href="deals.html" class="btn-secondary">View Deals</a>
-            </div>
-            <div class="stats">
-                <div><h3>10K+</h3><p>Products</p></div>
-                <div><h3>2K+</h3><p>Sellers</p></div>
-                <div><h3>24/7</h3><p>Support</p></div>
-            </div>
-        </div>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">ShopEase</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Cart</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="hero-right">
-            <div class="img-box big">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Watch">
-            </div>
-            <div class="img-box small top">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Shoes">
-            </div>
-            <div class="img-box small bottom">
-                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" alt="Phone">
-            </div>
-            <div class="deal-tag">🔥 Up to 70% Off Deals</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to ShopEase</h2>
+      <p>Best products at best prices</p>
+    </div>
+  </section>
+
+  <!-- Category Tabs Start -->
+  <section class="category-tabs">
+    <div class="container">
+      <h2>Shop by Category</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-category="all">All</button>
+        <button class="tab-btn" data-category="electronics">Electronics</button>
+        <button class="tab-btn" data-category="beauty">Beauty</button>
+        <button class="tab-btn" data-category="grocery">Grocery</button>
+        <button class="tab-btn" data-category="fashion">Fashion</button>
+      </div>
+    </div>
+  </section>
+  <!-- Category Tabs End -->
+
+  <!-- Products Section -->
+  <section class="products">
+    <div class="container">
+      <div class="product-grid" id="productGrid">
+        <div class="product-card" data-category="electronics">
+          <img src="https://via.placeholder.com/250" alt="Product">
+          <h3>Smartphone</h3>
+          <p>$299</p>
         </div>
-    </section>
+        <div class="product-card" data-category="beauty">
+          <img src="https://via.placeholder.com/250" alt="Product">
+          <h3>Face Cream</h3>
+          <p>$25</p>
+        </div>
+        <div class="product-card" data-category="grocery">
+          <img src="https://via.placeholder.com/250" alt="Product">
+          <h3>Organic Rice</h3>
+          <p>$15</p>
+        </div>
+        <div class="product-card" data-category="fashion">
+          <img src="https://via.placeholder.com/250" alt="Product">
+          <h3>T-Shirt</h3>
+          <p>$19</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Start -->
+  <footer class="modern-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h3>ShopEase</h3>
+          <p>Your one-stop shop for everything. Quality products at affordable prices.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Beauty</a></li>
+            <li><a href="#">Grocery</a></li>
+            <li><a href="#">Fashion</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShopEase. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <script src="script.js"></script>
 </body>
 </html>
