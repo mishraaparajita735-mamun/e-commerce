@@ -4,11 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery - JugaadMart</title>
-    <link rel="stylesheet" href="style.css?v=phone5">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .shop-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .shop-container h1 { font-size: 32px; color: #1f2937; font-weight: 700; }
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            color: #1f2937;
+            cursor: pointer;
+        }
+        .cart-icon a {
+            color: #1f2937;
+            text-decoration: none;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .product-card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 20px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
         .product-card img { 
             width: 100%; 
             height: 220px; 
@@ -20,152 +63,165 @@
             box-sizing: border-box;
         }
         .discount { font-size: 12px; color: #666; margin-bottom: 10px; display: flex; justify-content: space-between; }
-        .product-card h3 { font-size: 16px; margin: 10px 0; font-weight: 600; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; font-weight: 600; height: 40px; overflow: hidden; }
         .rating { color: #ffa41c; font-size: 14px; margin: 8px 0; }
         .tags { display: flex; gap: 15px; font-size: 12px; color: #555; margin: 10px 0; }
         .price-cart { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
         .price { font-size: 20px; font-weight: bold; }
-        .add-cart { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .add-cart { 
+            background: #2563eb; 
+            color: white; 
+            border: none; 
+            padding: 8px 16px; 
+            border-radius: 6px; 
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
         .add-cart:hover { background: #1d4ed8; }
+        .add-cart.added { background: #16a34a; }
         @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) { 
+            .product-grid { grid-template-columns: 1fr; }
+            .shop-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
     </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
             <li><a href="grocery.html" class="active">Grocery</a></li>
-            <li><a href="cart.html">Cart(0)</a></li>
+            <li><a href="beauty.html">Beauty</a></li>
             <li><a href="categories.html">Categories</a></li>
             <li><a href="deals.html">Deals</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="profile"></div>
+        <div class="profile">
+            <img src="https://i.pravatar.cc/40" alt="Profile">
+        </div>
+        <div class="hamburger">☰</div>
     </nav> 
 
     <div class="shop-container">
-        <h1 style="font-size: 32px; margin-bottom: 30px;">Grocery & Essentials</h1>
+        <div class="shop-header">
+            <h1>Grocery & Essentials</h1>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+        </div>
+        
         <div class="product-grid">
             
             <div class="product-card">
                 <img src="images/beef.jpg" alt="Beef Steak">
-                <div class="discount"><span>Up to 9.61% off</span><span>👁 ♡</span></div>
+                <div class="discount"><span>Up to 9.61% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
                 <h3>Beef Steak</h3>
                 <div class="rating">★★★★★ 5.0 (455)</div>
-                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
                 <div class="price-cart">
                     <span class="price">$12.99</span>
-                    <button class="add-cart">🛒 Add to cart</button>
+                    <button class="add-cart" onclick="addToCart('Beef Steak', 12.99, 'images/beef.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <div class="product-card">
                 <img src="images/catfood.jpg" alt="Cat Food">
-                <div class="discount"><span>Up to 9.58% off</span><span>👁 ♡</span></div>
+                <div class="discount"><span>Up to 9.58% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
                 <h3>Cat Food</h3>
                 <div class="rating">★★★★★ 5.0 (455)</div>
-                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
                 <div class="price-cart">
                     <span class="price">$8.99</span>
-                    <button class="add-cart">🛒 Add to cart</button>
+                    <button class="add-cart" onclick="addToCart('Cat Food', 8.99, 'images/catfood.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <div class="product-card">
                 <img src="images/chicken.jpg" alt="Chicken Meat">
-                <div class="discount"><span>Up to 13.7% off</span><span>👁 ♡</span></div>
+                <div class="discount"><span>Up to 13.7% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
                 <h3>Chicken Meat</h3>
                 <div class="rating">★★★★★ 5.0 (455)</div>
-                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
                 <div class="price-cart">
                     <span class="price">$9.99</span>
-                    <button class="add-cart">🛒 Add to cart</button>
+                    <button class="add-cart" onclick="addToCart('Chicken Meat', 9.99, 'images/chicken.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <div class="product-card">
                 <img src="images/oil.jpg" alt="Cooking Oil">
-                <div class="discount"><span>Up to 9.33% off</span><span>👁 ♡</span></div>
+                <div class="discount"><span>Up to 9.33% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
                 <h3>Cooking Oil</h3>
                 <div class="rating">★★★★★ 5.0 (455)</div>
-                <div class="tags"><span>🚚 Fast Delivery</span><span>🏷 Best Price</span></div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
                 <div class="price-cart">
                     <span class="price">$4.99</span>
-                    <button class="add-cart">🛒 Add to cart</button>
+                    <button class="add-cart" onclick="addToCart('Cooking Oil', 4.99, 'images/oil.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
-<!-- Green Bell Pepper -->
-<div class="product-card">
-    <div class="product-img">
-        <img src="images/bellpepper.jpg" alt="Green Bell Pepper">
-    </div>
-    <div class="product-details">
-        <p class="offer">Up to 0.16% off</p>
-        <h3>Green Bell Pepper</h3>
-        <div class="rating">★★★★★ 5.0 (455)</div>
-        <p class="features">🚚 Fast Delivery  💰 Best Price</p>
-        <div class="price-cart">
-            <span class="price">$1.29</span>
-            <button class="add-cart">🛒 Add to cart</button>
-        </div>
-    </div>
-</div>
 
-<!-- Green Chili Pepper -->
-<div class="product-card">
-    <div class="product-img">
-        <img src="images/chili.jpg" alt="Green Chili Pepper">
-    </div>
-    <div class="product-details">
-        <p class="offer">Up to 1% off</p>
-        <h3>Green Chili Pepper</h3>
-        <div class="rating">★★★★★ 5.0 (455)</div>
-        <p class="features">🚚 Fast Delivery  💰 Best Price</p>
-        <div class="price-cart">
-            <span class="price">$0.99</span>
-            <button class="add-cart">🛒 Add to cart</button>
-        </div>
-    </div>
-</div>
+            <div class="product-card">
+                <img src="images/bellpepper.jpg" alt="Green Bell Pepper">
+                <div class="discount"><span>Up to 0.16% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
+                <h3>Green Bell Pepper</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$1.29</span>
+                    <button class="add-cart" onclick="addToCart('Green Bell Pepper', 1.29, 'images/bellpepper.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
 
-<!-- Honey Jar -->
-<div class="product-card">
-    <div class="product-img">
-        <img src="images/honey.jpg" alt="Honey Jar">
-    </div>
-    <div class="product-details">
-        <p class="offer">Up to 14.4% off</p>
-        <h3>Honey Jar</h3>
-        <div class="rating">★★★★★ 5.0 (455)</div>
-        <p class="features">🚚 Fast Delivery  💰 Best Price</p>
-        <div class="price-cart">
-            <span class="price">$6.99</span>
-            <button class="add-cart">🛒 Add to cart</button>
-        </div>
-    </div>
-</div>
+            <div class="product-card">
+                <img src="images/chili.jpg" alt="Green Chili Pepper">
+                <div class="discount"><span>Up to 1% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
+                <h3>Green Chili Pepper</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$0.99</span>
+                    <button class="add-cart" onclick="addToCart('Green Chili Pepper', 0.99, 'images/chili.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
 
-<!-- Ice Cream -->
-<div class="product-card">
-    <div class="product-img">
-        <img src="images/icecream.jpg" alt="Ice Cream">
-    </div>
-    <div class="product-details">
-        <p class="offer">Up to 8.08% off</p>
-        <h3>Ice Cream</h3>
-        <div class="rating">★★★★★ 5.0 (455)</div>
-        <p class="features">🚚 Fast Delivery  💰 Best Price</p>
-        <div class="price-cart">
-            <span class="price">$5.49</span>
-            <button class="add-cart">🛒 Add to cart</button>
+            <div class="product-card">
+                <img src="images/honey.jpg" alt="Honey Jar">
+                <div class="discount"><span>Up to 14.4% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
+                <h3>Honey Jar</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$6.99</span>
+                    <button class="add-cart" onclick="addToCart('Honey Jar', 6.99, 'images/honey.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/icecream.jpg" alt="Ice Cream">
+                <div class="discount"><span>Up to 8.08% off</span><span><i class="far fa-eye"></i> <i class="far fa-heart"></i></span></div>
+                <h3>Ice Cream</h3>
+                <div class="rating">★★★★★ 5.0 (455)</div>
+                <div class="tags"><span><i class="fas fa-truck"></i> Fast Delivery</span><span><i class="fas fa-tag"></i> Best Price</span></div>
+                <div class="price-cart">
+                    <span class="price">$5.49</span>
+                    <button class="add-cart" onclick="addToCart('Ice Cream', 5.49, 'images/icecream.jpg')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
-        </div>
-    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
