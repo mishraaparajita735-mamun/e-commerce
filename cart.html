@@ -126,6 +126,20 @@
             color: #e5e7eb;
             margin-bottom: 20px;
         }
+        .btn-primary {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: #2563eb;
+        }
         @media (max-width: 768px) {
           .cart-container {
                 flex-direction: column;
@@ -136,6 +150,7 @@
             }
         }
     </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -176,22 +191,24 @@
                 <h3>Order summary</h3>
                 <div class="summary-row">
                     <span>Subtotal</span>
-                    <span id="subtotal">$0</span>
+                    <span id="subtotal">₹0</span>
                 </div>
                 <div class="summary-row">
                     <span>Delivery</span>
-                    <span id="delivery">$40</span>
+                    <span id="delivery">₹40</span>
                 </div>
                 <div class="summary-row">
                     <span>Tax</span>
-                    <span id="tax">$0</span>
+                    <span id="tax">₹0</span>
                 </div>
                 <hr style="margin: 15px 0;">
                 <div class="summary-row total">
                     <strong>Total</strong>
-                    <strong id="total">$0</strong>
+                    <strong id="total">₹0</strong>
                 </div>
-                <button class="btn-primary" style="width:100%;margin-top:20px;" onclick="checkout()">Proceed to Checkout</button>
+                <a href="checkout.html" style="text-decoration: none;">
+                    <button class="btn-primary" style="width:100%;margin-top:20px;">Proceed to Checkout</button>
+                </a>
                 <p style="text-align: center; margin-top: 20px;">or <a href="electronics.html">Continue Shopping →</a></p>
             </div>
 
@@ -203,104 +220,8 @@
     </div>
 
     <script>
-        // Load cart on page load
-        window.onload = function() {
-            displayCart();
-            updateCartCount();
-        }
-
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('show');
-        }
-
-        function displayCart() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartList = document.getElementById('cart-list');
-            let emptyCart = document.getElementById('empty-cart');
-            let summarySection = document.getElementById('cart-summary-section');
-
-            if (cart.length === 0) {
-                cartList.innerHTML = '';
-                emptyCart.style.display = 'block';
-                summarySection.style.display = 'none';
-                return;
-            }
-
-            emptyCart.style.display = 'none';
-            summarySection.style.display = 'block';
-
-            let itemsHTML = '';
-            let subtotal = 0;
-
-            cart.forEach((item, index) => {
-                let itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
-                
-                itemsHTML += `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="item-img">
-                        <div class="item-details">
-                            <h3>${item.name}</h3>
-                            <div class="item-price">$${item.price}</div>
-                            <div class="item-actions">
-                                <button onclick="updateQuantity(${index}, -1)">-</button>
-                                <span class="qty">${item.quantity}</span>
-                                <button onclick="updateQuantity(${index}, 1)">+</button>
-                                <span class="remove-text" onclick="removeItem(${index})">Remove</span>
-                            </div>
-                        </div>
-                        <div class="item-price">$${itemTotal.toFixed(2)}</div>
-                    </div>
-                `;
-            });
-
-            cartList.innerHTML = itemsHTML;
-
-            // Calculate totals
-            let delivery = subtotal > 500? 0 : 40;
-            let tax = subtotal * 0.18; // 18% GST
-            let total = subtotal + delivery + tax;
-
-            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
-            document.getElementById('delivery').textContent = delivery === 0? 'FREE' : '$' + delivery.toFixed(2);
-            document.getElementById('tax').textContent = '$' + tax.toFixed(2);
-            document.getElementById('total').textContent = '$' + total.toFixed(2);
-        }
-
-        function updateQuantity(index, change) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart[index].quantity += change;
-            
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1);
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart();
-            updateCartCount();
-        }
-
-        function removeItem(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart();
-            updateCartCount();
-        }
-
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let total = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = total;
-        }
-
-        function checkout() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-            alert('Checkout feature coming soon! Thanks for testing 🎉');
         }
     </script>
 </body>
