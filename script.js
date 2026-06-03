@@ -59,17 +59,16 @@ function loadCart() {
             <div class="cart-item">
                 <img class="item-img" src="${item.image}" alt="${item.name}">
                 <div class="item-details">
-                    <p><strong>${item.name}</strong></p>
-                    <p style="color:#3B82F6;font-weight:600;">₹${item.price}</p>
-                    <div style="margin-top: 10px;">
-                        <span class="remove-text" onclick="removeItem(${index})" style="cursor:pointer;color:#EF4444;">✕ Remove</span>
+                    <h3>${item.name}</h3>
+                    <div class="item-price">₹${item.price.toLocaleString()}</div>
+                    <div class="item-actions">
+                        <button onclick="updateQty(${index}, -1)">-</button>
+                        <span class="qty">${item.quantity}</span>
+                        <button onclick="updateQty(${index}, 1)">+</button>
+                        <span class="remove-text" onclick="removeItem(${index})">Remove</span>
                     </div>
-                <div class="item-actions">
-                    <button onclick="updateQty(${index}, -1)">-</button>
-                    <span>${item.quantity}</span>
-                    <button onclick="updateQty(${index}, 1)">+</button>
                 </div>
-                <div><strong>₹${(item.price * item.quantity).toLocaleString()}</strong></div>
+                <div class="item-price">₹${(item.price * item.quantity).toLocaleString()}</div>
             </div>
         `;
     });
@@ -128,7 +127,10 @@ function loadCheckout() {
     checkoutItems.innerHTML = '';
     
     if (cart.length === 0) {
-        checkoutItems.innerHTML = '<p style="color:#EF4444;">Your cart is empty!</p>';
+        checkoutItems.innerHTML = '<p style="color:#EF4444; text-align:center; padding:20px;">Your cart is empty! <a href="index.html">Shop now</a></p>';
+        document.querySelector('.place-order-btn').disabled = true;
+        document.querySelector('.place-order-btn').style.opacity = '0.5';
+        document.querySelector('.place-order-btn').style.cursor = 'not-allowed';
         return;
     }
     
@@ -152,20 +154,82 @@ function loadCheckout() {
     document.getElementById('checkout-total').textContent = '₹' + total.toLocaleString();
 }
 
+// Live Location Function
+function getLocation() {
+    const status = document.getElementById('location-status');
+    
+    if (!navigator.geolocation) {
+        status.textContent = 'Browser me location support nahi hai';
+        status.style.color = '#EF4444';
+        return;
+    }
+    
+    status.textContent = 'Location detect ho rahi hai...';
+    status.style.color = '#6b7280';
+    
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('street').value = data.address.road || data.address.neighbourhood || data.address.suburb || '';
+                    document.getElementById('city').value = data.address.city || data.address.town || data.address.village || '';
+                    document.getElementById('state').value = data.address.state || '';
+                    document.getElementById('pincode').value = data.address.postcode || '';
+                    status.textContent = '✓ Location mil gayi! Address bhar diya';
+                    status.style.color = '#10B981';
+                })
+                .catch(() => {
+                    status.textContent = 'Address nahi mila. Manually bhar de';
+                    status.style.color = '#EF4444';
+                });
+        },
+        (error) => {
+            status.textContent = 'Permission deny kar di. Browser me Allow karo';
+            status.style.color = '#EF4444';
+        }
+    );
+}
+
+// Place Order Function
 function placeOrder() {
     const form = document.getElementById('checkoutForm');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    if (cart.length === 0) {
+        alert('Your cart is empty! Add some products first.');
+        window.location.href = 'index.html';
+        return;
+    }
+    
     if (!form.checkValidity()) {
-        alert('Please fill all required address fields');
+        alert('Please fill all required fields correctly');
         form.reportValidity();
         return;
     }
     
     const name = document.getElementById('fullName').value;
+    const mobile = document.getElementById('mobile').value;
     const payment = document.querySelector('input[name="payment"]:checked').value;
     
-    alert(`Thank you ${name}! Order placed successfully. \nPayment Method: ${payment} \n\nWe will deliver soon!`);
+    // Calculate total again for confirmation
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    let delivery = subtotal > 500 ? 0 : 40;
+    let tax = Math.round(subtotal * 0.18);
+    let total = subtotal + delivery + tax;
+    
+    alert(`Thank you ${name}! \n\nOrder placed successfully! \nTotal Amount: ₹${total.toLocaleString()} \nPayment Method: ${payment} \nMobile: ${mobile}\n\nWe will deliver soon!`);
+    
     localStorage.removeItem('cart');
     window.location.href = 'index.html';
+}
+
+// Hamburger Menu Toggle
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
 }
 
 // Initialize on page load
