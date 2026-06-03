@@ -182,6 +182,7 @@
             .product-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -213,17 +214,17 @@
             <div class="shop-actions">
                 <button class="filter-btn"><i class="fas fa-filter"></i> Filters</button>
                 <button class="sort-btn"><i class="fas fa-sort"></i> Sort</button>
-                <div class="cart-icon" onclick="alert('Cart page coming soon!')">
+                <a href="cart.html" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </div>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
             </div>
         </div>
         
         <div class="product-grid">
             
             <!-- Product 1 - iMac -->
-            <div class="product-card" data-id="1" data-name="Apple iMac 27 M3 Max" data-price="1699">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500" alt="Apple iMac 27 Inch">
                 <div class="product-discount">
                     <span>Up to 35% off</span>
@@ -239,12 +240,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$1,699</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Apple iMac 27 M3 Max', 1699, 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 2 - iPhone 15 Pro -->
-            <div class="product-card" data-id="2" data-name="Apple iPhone 15 Pro Max 256GB" data-price="1199">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500" alt="iPhone 15 Pro Max">
                 <div class="product-discount">
                     <span>Up to 15% off</span>
@@ -260,12 +261,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$1,199</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Apple iPhone 15 Pro Max 256GB', 1199, 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 3 - iPad Pro -->
-            <div class="product-card" data-id="3" data-name="iPad Pro 13-Inch M4 512GB" data-price="799">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500" alt="iPad Pro M4">
                 <div class="product-discount">
                     <span>Up to 35% off</span>
@@ -281,12 +282,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$799</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('iPad Pro 13-Inch M4 512GB', 799, 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 4 - PS5 -->
-            <div class="product-card" data-id="4" data-name="PlayStation 5 Console 1TB" data-price="499">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=500" alt="PlayStation 5">
                 <div class="product-discount">
                     <span>Up to 10% off</span>
@@ -302,12 +303,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$499</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('PlayStation 5 Console 1TB', 499, 'https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 5 - Xbox -->
-            <div class="product-card" data-id="5" data-name="Microsoft Xbox Series X 1TB" data-price="499">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=500" alt="Xbox Series X">
                 <div class="product-discount">
                     <span>Up to 10% off</span>
@@ -323,12 +324,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$499</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Microsoft Xbox Series X 1TB', 499, 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 6 - MacBook -->
-            <div class="product-card" data-id="6" data-name="Apple MacBook PRO M2" data-price="1199">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500" alt="MacBook PRO M2">
                 <div class="product-discount">
                     <span>Up to 5% off</span>
@@ -344,12 +345,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$1,199</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Apple MacBook PRO M2', 1199, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
             <!-- Product 7 - Apple Watch -->
-            <div class="product-card" data-id="7" data-name="Apple Watch SE GPS 40mm" data-price="799">
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500" alt="Apple Watch SE">
                 <div class="product-discount">
                     <span>Up to 20% off</span>
@@ -365,12 +366,12 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$799</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Apple Watch SE GPS 40mm', 799, 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
-            <!-- Product 8 - Surface Pro - IMAGE FIXED -->
-            <div class="product-card" data-id="8" data-name="Microsoft Surface Pro Copilot+ PC" data-price="499">
+            <!-- Product 8 - Surface Pro -->
+            <div class="product-card">
                 <img class="product-img" src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500" alt="Microsoft Surface Pro">
                 <div class="product-discount">
                     <span>Up to 35% off</span>
@@ -386,7 +387,7 @@
                 </div>
                 <div class="product-footer">
                     <span class="product-price">$499</span>
-                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Microsoft Surface Pro Copilot+ PC', 499, 'https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500')"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
             </div>
 
@@ -398,44 +399,6 @@
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('show');
-        });
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartCount = document.getElementById('cartCount');
-        
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            cartCount.textContent = totalItems;
-        }
-        
-        updateCartCount();
-
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const card = this.closest('.product-card');
-                const id = card.dataset.id;
-                const name = card.dataset.name;
-                const price = parseFloat(card.dataset.price);
-                
-                const existingItem = cart.find(item => item.id === id);
-                
-                if (existingItem) {
-                    existingItem.qty += 1;
-                } else {
-                    cart.push({ id, name, price, qty: 1 });
-                }
-                
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCount();
-                
-                this.innerHTML = '<i class="fas fa-check"></i> Added';
-                this.classList.add('added');
-                
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to cart';
-                    this.classList.remove('added');
-                }, 1500);
-            });
         });
     </script>
 </body>
