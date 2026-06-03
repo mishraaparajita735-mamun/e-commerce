@@ -1,11 +1,3 @@
-// Initialize cart when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-    if (document.getElementById('cart-list')) {
-        loadCart();
-    }
-});
-
 // Add to Cart - Works from any page
 function addToCart(name, price, image) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -72,7 +64,6 @@ function loadCart() {
                     <div style="margin-top: 10px;">
                         <span class="remove-text" onclick="removeItem(${index})" style="cursor:pointer;color:#EF4444;">✕ Remove</span>
                     </div>
-                </div>
                 <div class="item-actions">
                     <button onclick="updateQty(${index}, -1)">-</button>
                     <span>${item.quantity}</span>
@@ -84,7 +75,7 @@ function loadCart() {
     });
 
     // Calculate totals
-    let delivery = subtotal > 500? 0 : 40;
+    let delivery = subtotal > 500 ? 0 : 40;
     let tax = Math.round(subtotal * 0.18);
     let total = subtotal + delivery + tax;
 
@@ -93,7 +84,7 @@ function loadCart() {
         document.getElementById('subtotal').innerText = '₹' + subtotal.toLocaleString();
     }
     if (document.getElementById('delivery')) {
-        document.getElementById('delivery').innerText = delivery === 0? 'FREE' : '₹' + delivery;
+        document.getElementById('delivery').innerText = delivery === 0 ? 'FREE' : '₹' + delivery;
     }
     if (document.getElementById('tax')) {
         document.getElementById('tax').innerText = '₹' + tax.toLocaleString();
@@ -125,3 +116,67 @@ function removeItem(index) {
     loadCart();
     updateCartCount();
 }
+
+// Checkout Page Functions
+function loadCheckout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const checkoutItems = document.getElementById('checkout-items');
+    
+    if (!checkoutItems) return;
+    
+    let subtotal = 0;
+    checkoutItems.innerHTML = '';
+    
+    if (cart.length === 0) {
+        checkoutItems.innerHTML = '<p style="color:#EF4444;">Your cart is empty!</p>';
+        return;
+    }
+    
+    cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+        checkoutItems.innerHTML += `
+            <div class="summary-row">
+                <span>${item.name} x ${item.quantity}</span>
+                <span>₹${(item.price * item.quantity).toLocaleString()}</span>
+            </div>
+        `;
+    });
+    
+    const delivery = subtotal > 500 ? 0 : 40;
+    const tax = Math.round(subtotal * 0.18);
+    const total = subtotal + delivery + tax;
+    
+    document.getElementById('checkout-subtotal').textContent = '₹' + subtotal.toLocaleString();
+    document.getElementById('checkout-delivery').textContent = delivery === 0 ? 'FREE' : '₹' + delivery;
+    document.getElementById('checkout-tax').textContent = '₹' + tax.toLocaleString();
+    document.getElementById('checkout-total').textContent = '₹' + total.toLocaleString();
+}
+
+function placeOrder() {
+    const form = document.getElementById('checkoutForm');
+    if (!form.checkValidity()) {
+        alert('Please fill all required address fields');
+        form.reportValidity();
+        return;
+    }
+    
+    const name = document.getElementById('fullName').value;
+    const payment = document.querySelector('input[name="payment"]:checked').value;
+    
+    alert(`Thank you ${name}! Order placed successfully. \nPayment Method: ${payment} \n\nWe will deliver soon!`);
+    localStorage.removeItem('cart');
+    window.location.href = 'index.html';
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    
+    if (document.getElementById('cart-list')) {
+        loadCart();
+    }
+    
+    if (document.getElementById('checkout-items')) {
+        loadCheckout();
+    }
+});
