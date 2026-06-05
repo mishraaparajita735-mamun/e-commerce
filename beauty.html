@@ -142,22 +142,20 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Jugaad<span>Mart</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="electronics.html">Electronics</a></li>
-            <li><a href="grocery.html">Grocery</a></li>
-            <li><a href="beauty.html" class="active">Beauty</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="Profile">
-        </div>
-        <div class="hamburger">☰</div>
-    </nav>
+    <!-- Header Load Karne Ka Code -->
+    <div id="header"></div>
+    
+    <script>
+      fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header').innerHTML = data;
+          const scriptTag = document.querySelector('#header script');
+          const newScript = document.createElement('script');
+          newScript.textContent = scriptTag.textContent;
+          document.body.appendChild(newScript);
+        });
+    </script>
 
     <div class="shop-container">
         <div class="shop-header">
@@ -250,10 +248,39 @@
     </div>
 
     <script>
+        // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+
+        // Search Filter Script - Beauty page ke liye
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            
+            if(searchQuery) {
+                let products = document.querySelectorAll('.product-card');
+                let query = searchQuery.toLowerCase();
+                
+                products.forEach(product => {
+                    let title = product.querySelector('.product-title').innerText.toLowerCase(); 
+                    if (title.includes(query)) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+
+                // Search box me value daal do
+                setTimeout(() => {
+                    const searchInput = document.getElementById('searchInput');
+                    if(searchInput) searchInput.value = searchQuery;
+                }, 500);
+            }
         });
     </script>
 </body>
