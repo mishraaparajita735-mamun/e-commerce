@@ -1,0 +1,48 @@
+<div class="main-header">
+  <div class="logo">MyShop</div>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="handleSearch(event)">
+    <button onclick="handleSearch()">🔍</button>
+  </div>
+  
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart</a>
+  </div>
+</div>
+
+<script>
+function handleSearch(event) {
+  if(event && event.key !== 'Enter' && event.type === 'keyup') return;
+  
+  let query = document.getElementById('searchInput').value.trim();
+  if(query) {
+    window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+  }
+}
+
+window.addEventListener('load', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+  
+  if(searchQuery) {
+    document.getElementById('searchInput').value = searchQuery;
+    filterProducts(searchQuery);
+  }
+});
+
+function filterProducts(query) {
+  let products = document.querySelectorAll('.product-card');
+  query = query.toLowerCase();
+  
+  products.forEach(product => {
+    let title = product.querySelector('h3').innerText.toLowerCase(); 
+    if (title.includes(query)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>

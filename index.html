@@ -11,25 +11,34 @@
 <body>
     <nav class="navbar">
         <div class="logo">Jugaad<span>Mart</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="electronics.html">Electronics</a></li>
-            <li><a href="grocery.html">Grocery</a></li>
-            <li><a href="beauty.html">Beauty</a></li>
-            <li><a href="categories.html">Categories</a></li>
-            <li><a href="deals.html">Deals</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="cart-icon">
-            <a href="cart.html">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-count">0</span>
-            </a>
+        
+        <!-- Search Bar Add Kiya -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="handleSearch(event)">
+            <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
         </div>
-        <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="Profile">
+        
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="grocery.html">Grocery</a></li>
+                <li><a href="beauty.html">Beauty</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="profile">
+                <img src="https://i.pravatar.cc/40" alt="Profile">
+            </div>
+            <div class="hamburger">☰</div>
         </div>
-        <div class="hamburger">☰</div>
     </nav> 
 
     <section class="hero">
@@ -138,11 +147,22 @@
     <!-- Footer End -->
 
     <script>
+        // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('show');
         });
+
+        // Search Function
+        function handleSearch(event) {
+            if(event && event.key !== 'Enter' && event.type === 'keyup') return;
+            
+            let query = document.getElementById('searchInput').value.trim();
+            if(query) {
+                window.location.href = `electronics.html?search=${encodeURIComponent(query)}`;
+            }
+        }
     </script>
 </body>
 </html>
